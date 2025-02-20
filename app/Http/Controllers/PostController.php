@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index() : View
     {
         //get all posts galery
-        $gallery = Posts::latest()->paginate(10);
+        $gallery = Posts::latest()->paginate(5);
         //render view with gallery
         return view('posts.index', compact('gallery'));
     }
@@ -61,5 +61,13 @@ class PostController extends Controller
         ]);
         //redirect to index
         return redirect()->route('gallery.index')->with(['success' => 'Data Berhasil Disimpan!']);
+    }
+    public function show(string $id): View
+    {
+        //get gallery by ID
+        $gallery = Posts::findOrFail($id);
+
+        //render view with gallery view
+        return view('posts.show', compact('gallery'));
     }
 }

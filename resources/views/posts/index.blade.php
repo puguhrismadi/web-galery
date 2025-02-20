@@ -18,7 +18,7 @@
                                     <th scope="col">Gambar</th>
                                     <th scope="col">Judul</th>
                                     <th scope="col">isi</th>
-                                    <th scope="col">penulis</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col" style="width: 20%">Aksi</th>
                                 </tr>
                             </thead>
@@ -28,9 +28,11 @@
                                         <td class="text-center">
                                             <img src="{{ asset('/storage/'.$post->gambar) }}" class="rounded" style="width: 150px">
                                         </td>
-                                        <td>{{ $post->judul }}</td>
+                                        <td>{{ $post->judul }}
+                                            <br> oleh : {{ $post->petugas_id }} 
+                                        </td>
                                         <td>{{ $post->isi }}</td>
-                                        <td>{{ $post->penulis }} - {{ $post->status }}</td>
+                                        <td>{{ $post->status }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('gallery.destroy', $post->id) }}" method="POST">
                                                 <a href="{{ route('gallery.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
