@@ -1,6 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\PostController;
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
@@ -10,3 +14,5 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/home', 'home')->name('home');
     Route::post('/logout', 'logout')->name('logout');
 });
+//route resource for galery
+Route::resource('/gallery', \App\Http\Controllers\PostController::class);

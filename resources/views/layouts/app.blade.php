@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
-          <a class="navbar-brand" href="{{ URL('/') }}">Laravel 11 Login Register</a>
+          <a class="navbar-brand" href="{{ URL('/') }}">SMK Nusantara</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -50,7 +50,7 @@
         @yield('content')
         <div class="row justify-content-center text-center mt-3">
             <div class="col-md-12">
-                <p>web Galery SMK Nusantara
+                <p>Portal Web Galery
                 </p>
                 
             </div>
