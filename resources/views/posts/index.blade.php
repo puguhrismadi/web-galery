@@ -31,7 +31,7 @@
                                         <td>{{ $post->judul }}
                                             <br> oleh : {{ $post->petugas_id }} 
                                         </td>
-                                        <td>{{ $post->isi }}</td>
+                                        <td>{!! $post->isi !!}</td>
                                         <td>{{ $post->status }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('gallery.destroy', $post->id) }}" method="POST">
@@ -50,7 +50,10 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        {{ $gallery->links() }}
+                        <div class="d-flex">
+                            {{ $gallery->links() }}
+                        </div>
+                       
                     </div>
                 </div>
             </div>
