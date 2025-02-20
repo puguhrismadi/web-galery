@@ -11,7 +11,7 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('gallery.create') }}" class="btn btn-md btn-success mb-3">ADD PRODUCT</a>
+                        <a href="{{ route('gallery.create') }}" class="btn btn-md btn-success mb-3">Add Galery</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -26,13 +26,13 @@
                                 @forelse ($gallery as $post)
                                     <tr>
                                         <td class="text-center">
-                                            <img src="{{ asset('/storage/products/'.$post->gambar) }}" class="rounded" style="width: 150px">
+                                            <img src="{{ asset('/storage/'.$post->gambar) }}" class="rounded" style="width: 150px">
                                         </td>
                                         <td>{{ $post->judul }}</td>
                                         <td>{{ $post->isi }}</td>
                                         <td>{{ $post->penulis }} - {{ $post->status }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('gallery.destroy', $gallery->id) }}" method="POST">
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('gallery.destroy', $post->id) }}" method="POST">
                                                 <a href="{{ route('gallery.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
                                                 <a href="{{ route('gallery.edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
