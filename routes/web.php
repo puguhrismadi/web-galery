@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\PostController;
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage/index');
 });
 
 Route::controller(LoginRegisterController::class)->group(function() {
