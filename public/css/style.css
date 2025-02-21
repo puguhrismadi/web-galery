@@ -5,14 +5,147 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
-
-/* Header */
+/* === HEADER STYLING === */
 header {
-    text-align: center;
-    background: #ddd;
-    padding: 20px;
+    background: #f8f9fa; /* Warna latar belakang profesional */
+    padding: 20px 0; /* Padding atas dan bawah */
+    border-bottom: 2px solid #ddd; /* Garis bawah tipis */
 }
 
+.container {
+    width: 90%; /* Lebar standar responsif */
+    max-width: 1200px; /* Maksimal lebar */
+    margin: 0 auto; /* Pusatkan konten */
+    display: flex;
+    align-items: center;
+}
+
+/* Logo & Title */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antara logo dan teks */
+}
+
+.logo-container img {
+    height: 60px; /* Ukuran logo lebih besar */
+    width: 60px;
+    border-radius: 50%; /* Membuat lingkaran */
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Teks Header */
+.title h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333; /* Warna teks lebih profesional */
+}
+
+.title p {
+    margin: 0;
+    font-size: 14px;
+    color: #777; /* Warna abu-abu untuk tagline */
+}
+/* === HERO SLIDER STYLES === */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Sesuaikan tinggi slider secara profesional */
+    overflow: hidden;
+}
+
+.hero-slider .carousel {
+    height: 100%;
+}
+
+/* Gaya Gambar Slider */
+.hero-slider .hero-image {
+    width: 100%;
+    height: 70vh; /* Standar tinggi hero slider */
+    object-fit: cover; /* Menyesuaikan ukuran tanpa merusak proporsi */
+}
+
+/* Teks di dalam Slider */
+.carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5); /* Latar belakang semi transparan */
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: 60%;
+    text-align: center;
+}
+
+.carousel-caption h3 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 50vh;
+    }
+
+    .hero-slider .hero-image {
+        height: 50vh;
+    }
+
+    .carousel-caption {
+        width: 80%;
+        bottom: 10%;
+    }
+
+    .carousel-caption h3 {
+        font-size: 22px;
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
+    }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .logo-container img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .title h1 {
+        font-size: 22px;
+    }
+
+    .title p {
+        font-size: 12px;
+    }
+}
+.title h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
 /* Slider */
 .slider {
     width: 100%;
@@ -62,7 +195,231 @@ header {
     66% { transform: translateX(-200%); }
     100% { transform: translateX(0); }
 }
+/* === SECTION PETA SEKOLAH === */
+.school-map {
+    background: #f8f9fa;
+    padding: 50px 0;
+}
 
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Wrapper untuk map dan informasi */
+.map-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%; /* Total area termasuk margin */
+    margin: 0 auto;
+}
+/* === SECTION PETA SEKOLAH === */
+.school-map {
+    background: #f8f9fa;
+    padding: 50px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Wrapper untuk map dan informasi */
+.map-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+/* === SECTION PETA SEKOLAH === */
+.school-map {
+    background: #f8f9fa;
+    padding: 60px 0;
+}
+
+.school-map .section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Gambar Peta Sekolah */
+.school-map-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Daftar Kategori Peta */
+.school-map-categories {
+    list-style: none;
+    padding: 0;
+}
+
+.school-map-categories li {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.category-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .school-map .row {
+        flex-direction: column;
+    }
+
+    .school-map-categories li {
+        font-size: 14px;
+    }
+}
+/* === AGENDA & PRESTASI SECTION === */
+.agenda-prestasi {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+/* Gaya Grid */
+.agenda-container {
+    width: 30%;
+    padding-right: 20px;
+}
+
+.prestasi-container {
+    width: 70%;
+}
+/* === AGENDA & PRESTASI SECTION === */
+.agenda-prestasi {
+    padding: 50px 0;
+    background: #f8f9fa;
+}
+
+.agenda-container {
+    width: 40%;
+    padding-right: 20px;
+}
+
+.prestasi-container {
+    width: 60%;
+}
+
+/* === AGENDA SEKOLAH === */
+.agenda-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.agenda-list li {
+    background: white;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.agenda-date {
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* === PRESTASI SEKOLAH === */
+/* === PRESTASI SEKOLAH === */
+.prestasi-item {
+    display: flex;
+    flex-direction: column; /* Susun elemen ke dalam satu kolom */
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Judul Prestasi di Atas Gambar */
+.prestasi-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Gambar Thumbnail */
+.prestasi-thumbnail {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Isi Deskripsi di Bawah Gambar */
+.prestasi-content {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    width: 90%;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .prestasi-item {
+        width: 100%;
+    }
+
+    .prestasi-thumbnail {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .agenda-prestasi .row {
+        flex-direction: column;
+    }
+
+    .agenda-container, .prestasi-container {
+        width: 100%;
+    }
+
+    .prestasi-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .prestasi-thumbnail {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
