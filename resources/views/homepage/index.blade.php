@@ -1,83 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMK Indonesia Digital</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="bg-light p-3 d-flex align-items-center">
-        <img src="logo.png" alt="Logo" class="me-3" width="40">
-        <div>
-            <h5 class="m-0 fw-bold">SMK INDONESIA DIGITAL</h5>
-            <small>maju seiring perkembangan digital</small>
-        </div>
+    <header>
+        <h1>SMK INDONESIA DIGITAL</h1>
+        <p>maju seiring perkembangan digital</p>
     </header>
 
-    <!-- Gallery Section -->
-    <section class="gallery bg-primary text-white text-center py-3">
-        <h6 class="text-end pe-3"><small>GALERY KEGIATAN SEKOLAH</small></h6>
-        <div class="container">
-            <div class="img-placeholder"></div>
-        </div>
-    </section>
-
-    <!-- Content Section -->
-    <section class="container my-4">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="d-flex bg-light p-3">
-                    <div class="img-placeholder-sm me-3"></div>
-                    <div>
-                        <h6 class="fw-bold">Judul</h6>
-                        <p class="small">Lorem ipsum dolor sit amet consectetur. Euismod accumsan nulla turpis nulla...</p>
-                    </div>
+    <!-- Slider (Menampilkan kategori 'Kegiatan Sekolah') -->
+    <section class="slider">
+        <div class="slides">
+            @foreach ($kegiatan as $post)
+                <div class="slide">
+                    <img src="{{ asset('storage/' . $post->gambar) }}" alt="{{ $post->judul }}">
+                    <h3>{{ $post->judul }}</h3>
+                    <p>{{ Str::limit($post->isi, 100) }}</p>
                 </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
-    <!-- Agenda & Latest Info -->
-    <section class="container">
-        <div class="row">
-            <div class="col-md-6 p-3 bg-danger text-white">
-                <h6 class="fw-bold">AGENDA SEKOLAH</h6>
-                <ul class="small">
-                    <li>Lorem ipsum dolor sit amet consectetur.</li>
-                    <li>Mi viverra pellentesque</li>
-                    <li>Magna diam id. Quam in etiam</li>
-                    <li>Id malesuada amet urna quam eget.</li>
-                    <li>Ut donec in tellus dolor tellus sed.</li>
-                    <li>Mi libero consectetur faucibus.</li>
-                    <li>Lectus tincidunt molestie ac consequat neque.</li>
-                </ul>
-            </div>
-            <div class="col-md-6 p-3 bg-light">
-                <h6 class="fw-bold">INFORMASI TERKINI</h6>
-                <p class="small">PRESTASI JUARA 1 LOMBA KOMPETENSI</p>
-                <div class="img-placeholder-sm my-2"></div>
-                <p class="small">Lorem ipsum dolor sit amet consectetur. Rhoncus pellentesque tincidunt fringilla...</p>
-            </div>
-        </div>
-    </section>
+    <div class="container">
 
-    <!-- School Map -->
-    <section class="container my-4">
-        <div class="row">
-            <div class="col-md-12 p-3 bg-light">
-                <h6 class="fw-bold">PETA SEKOLAH</h6>
-                <p class="small">address school</p>
-                <div class="img-placeholder-lg">
-                    <img src="petasekolah.png" class="img-placeholder-lg" alt="peta sekolah" >
+        <!-- Agenda Sekolah -->
+        <section class="post red">
+            <h3>Agenda Sekolah</h3>
+            <ul>
+                @forelse ($agenda as $post)
+                    <li>{{ $post->judul }}</li>
+                @empty
+                    <li>Tidak ada agenda sekolah saat ini.</li>
+                @endforelse
+            </ul>
+        </section>
+
+        <!-- Prestasi Sekolah -->
+        <section class="post white">
+            <h3>Prestasi Sekolah</h3>
+            @forelse ($prestasi as $post)
+                <div class="prestasi-item">
+                    <h4>{{ $post->judul }}</h4>
+                    <img src="{{ asset('storage/' . $post->gambar) }}" alt="{{ $post->judul }}">
+                    <p>{{ Str::limit($post->isi, 100) }}</p>
                 </div>
-            </div>
-        </div>
-    </section>
+            @empty
+                <p>Belum ada prestasi yang ditambahkan.</p>
+            @endforelse
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

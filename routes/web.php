@@ -1,10 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
-use App\Http\Controllers\PostController;
-Route::get('/', function () {
-    return view('homepage/index');
-});
+use App\Http\Controllers\HomeController;
+Route::get('/', [HomeController::class, 'show'])->name('homepage');
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
