@@ -6,7 +6,6 @@
     <title>SMK Indonesia Digital</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -57,9 +56,9 @@
         <section class="agenda-prestasi">
             <div class="container">
                 <div class="row">
-                    <!-- Agenda Sekolah (40%) -->
+                    <!-- Agenda Sekolah -->
                     <div class="col-md-5 agenda-container">
-                        <h3>Agenda Sekolah</h3>
+                        <h3 class="section-title">Agenda Sekolah</h3>
                         <div id="agendaSlider" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach ($agenda->chunk(5) as $key => $agendaChunk)
@@ -75,51 +74,66 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#agendaSlider" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#agendaSlider" data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
                         </div>
                     </div>
         
-                    <!-- Prestasi Sekolah (60%) -->
+                    <!-- Prestasi Sekolah -->
                     <div class="col-md-7 prestasi-container">
-                        <h3>Prestasi Sekolah</h3>
+                        <h3 class="section-title">Prestasi Sekolah</h3>
                         <div id="prestasiSlider" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach ($prestasi as $key => $post)
                                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                         <div class="prestasi-item">
-                                            <!-- Judul di atas gambar -->
-                                            <h4 class="prestasi-title">{{ $post->judul }}</h4>
-                                            
-                                            <!-- Gambar Prestasi -->
                                             <img src="{{ asset('storage/' . $post->gambar) }}" alt="{{ $post->judul }}" class="prestasi-thumbnail">
-                                            
-                                            <!-- Isi Deskripsi di bawah gambar -->
                                             <div class="prestasi-content">
+                                                <h4>{{ $post->judul }}</h4>
                                                 <p>{{ Str::limit($post->isi, 150) }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
-                        
-                            <button class="carousel-control-prev" type="button" data-bs-target="#prestasiSlider" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#prestasiSlider" data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
+        <section class="info-terkini">
+            <div class="container">
+                <h3 class="section-title">Info Terkini</h3>
+                <div id="infoSlider" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($info->chunk(3) as $key => $chunk)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <div class="row">
+                                    @foreach ($chunk as $post)
+                                        <div class="col-md-4">
+                                            <div class="info-item">
+                                                <img src="{{ asset('storage/' . $post->gambar) }}" alt="{{ $post->judul }}" class="info-thumbnail">
+                                                <h4 class="info-title">{{ $post->judul }}</h4>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
         
+                    <!-- Navigasi Slider -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#infoSlider" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#infoSlider" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+                <br>
+            </div>
+        </section>
+        
+            
         <section class="school-map">
             <div class="container">
                 <h2 class="section-title">Peta Sekolah</h2>
@@ -133,6 +147,7 @@
                     <!-- Bagian Kanan: Kategori Peta -->
                     <div class="col-md-5">
                         <ul class="school-map-categories">
+                            <li><span class="category-icon">📍</span> <strong>Alamat Sekolah</strong>Jl. Raya Digital No. 1, Bogor Jawa Barat</li>
                             <li><span class="category-icon">🏫</span> <strong>Kelas</strong> - Ruang belajar siswa</li>
                             <li><span class="category-icon">📚</span> <strong>Perpustakaan</strong> - Koleksi buku dan ruang baca</li>
                             <li><span class="category-icon">⚽</span> <strong>Lapangan</strong> - Area olahraga sekolah</li>
@@ -143,7 +158,6 @@
                 </div>
             </div>
         </section>
-       
     </div>
 
     <script src="{{ asset('js/script.js') }}"></script>

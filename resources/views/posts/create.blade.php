@@ -54,7 +54,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label class="font-weight-bold">Kategori Gallery</label>
+                                        <label class="font-weight-bold">Kategori Gallery </label>
+                                        <label class="small" for="kategori_id"> (category 1: kegiatan sekolah, 2 : info sekolah, 3 : prestasi, 4 : agenda)</label>
                                         <input type="number" class="form-control @error('kategori_id') is-invalid @enderror" name="kategori_id" value="{{ old('kategori_id') }}" placeholder="Masukkan Kategori Galery">
                                     
                                         <!-- error message untuk price -->
